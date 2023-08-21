@@ -1,4 +1,43 @@
 <!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>New Order</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'telegram_webapp/styles.css' %}">
+</head>
+<body>
+    <div class="buttons">
+        <button id="sbButton" class="active" name="SB">SB</button>
+        <button id="qButton" name="Q">Q</button>
+    </div>
+    <div class="content">
+        <h1 id="contentTitle">Purchase Order</h1>
+        <label for="input1">Input:</label>
+        <input type="text" id="input1" maxlength="15">
+        <h1 id="contentLabel2">Invoice Note</h1>
+        <label for="input2">Input:</label>
+        <input type="text" id="input2" maxlength="15">
+        <div id="warehouseNoteSection">
+            <h1 id="contentLabel3">Warehouse Note</h1>
+            <label for="input3">Input:</label>
+            <input type="text" id="input3" maxlength="18">
+        </div>
+        <div class="choices" id="choices">
+            <input type="radio" id="choice1" name="choice" value="1" checked>
+            <label for="choice1" id="choiceLabel1">Review & Edit</label>
+            <input type="radio" id="choice2" name="choice" value="2">
+            <label for="choice2" id="choiceLabel2">Send</label>
+        </div>
+        <button id="submitButton">Submit</button>
+    </div>
+    <script src="{% static 'telegram_webapp/script.js' %}"></script>
+</body>
+</html>
+
+<!--
+    Simple static Telegram WebApp. Does not verify the WebAppInitData, as a bot token would be needed for that.
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -34,3 +73,4 @@
     Telegram.WebApp.expand();
 </script>
 </html>
+-->
