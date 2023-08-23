@@ -1,46 +1,92 @@
+Telegram.WebApp.ready();
+
+// Define Choices Function
+document.getElementById("choice1").addEventListener("click", function() {
+    document.getElementById("option1_btn").classList.add("active");
+    document.getElementById("choice1").setAttribute("checked", "true");
+    document.getElementById("option2_btn").classList.remove("active");
+    document.getElementById("choice2").setAttribute("checked", "false");
+});
+document.getElementById("choice2").addEventListener("click", function() {
+    document.getElementById("option2_btn").classList.add("active");
+    document.getElementById("choice2").setAttribute("checked", "true");
+    document.getElementById("option1_btn").classList.remove("active");
+    document.getElementById("choice1").setAttribute("checked", "false");
+});
+
+// Select Order Type (SalesBuzz, Quotation)
+
+// Selected SalesBuzz
 document.getElementById("sbButton").addEventListener("click", function() {
     document.getElementById("sbButton").classList.add("active");
     document.getElementById("qButton").classList.remove("active");
-    document.getElementById("contentTitle").textContent = "Purchase Order";
+    document.getElementById("contentLabel1").textContent = "Purchase Order";
     document.getElementById("contentLabel2").textContent = "Invoice Note";
     document.getElementById("contentLabel3").textContent = "Warehouse Note";
     document.getElementById("input1").setAttribute("maxlength", "15");
+    document.getElementById("input1").setAttribute("placeholder", "Enter PO: 233*20*1234");
     document.getElementById("input2").setAttribute("maxlength", "15");
     document.getElementById("input3").setAttribute("maxlength", "18");
-    document.getElementById("warehouseNoteSection").style.display = "block";
+    document.getElementById("invoiceSection").style.display = "block";
     document.querySelector('input[name="choice"][value="1"]').checked = true;
     document.querySelector('input[name="choice"][value="2"]').checked = false;
     document.getElementById("choiceLabel1").textContent = "Review & Edit";
     document.getElementById("choiceLabel2").textContent = "Send";
     document.getElementById("choices").style.display = "block";
+    document.getElementById("option1_btn").classList.add("active");
+    document.getElementById("option2_btn").classList.remove("active");
+
 });
 
+// Selected Quotation
 document.getElementById("qButton").addEventListener("click", function() {
     document.getElementById("qButton").classList.add("active");
     document.getElementById("sbButton").classList.remove("active");
-    document.getElementById("contentTitle").textContent = "Quotation Number";
+    document.getElementById("contentLabel1").textContent = "Quotation Number";
     document.getElementById("contentLabel2").textContent = "Warehouse Note";
-    document.getElementById("contentLabel3").textContent = "";
     document.getElementById("input1").setAttribute("maxlength", "8");
+    document.getElementById("input1").setAttribute("placeholder", "Enter Quotation Number");
     document.getElementById("input2").setAttribute("maxlength", "18");
-    document.getElementById("input3").value = "";
-    document.getElementById("warehouseNoteSection").style.display = "none";
+    document.getElementById("invoiceSection").style.display = "none";
     document.querySelector('input[name="choice"][value="1"]').checked = false;
     document.querySelector('input[name="choice"][value="2"]').checked = true;
     document.getElementById("choiceLabel1").textContent = "Approve Only";
     document.getElementById("choiceLabel2").textContent = "Send";
     document.getElementById("choices").style.display = "block";
+    document.getElementById("option2_btn").classList.add("active");
+    document.getElementById("option1_btn").classList.remove("active");
+
 });
 
-document.getElementById("submitButton").addEventListener("click", function() {
-    var input1 = document.getElementById("input1").value;
-    var input2 = document.getElementById("input2").value;
-    var input3 = document.getElementById("input3").value;
-    var choice = document.querySelector('input[name="choice"]:checked').value;
+Telegram.WebApp.MainButton.setText('Send').show().onClick(function () {
+    let input1 = document.getElementById("input1");
+    let input2 = document.getElementById("input2");
+    let input3 = document.getElementById("input3");
+    let choice = document.querySelector('input[name="choice"]:checked').nextElementSibling.textContent;
 
-    // Perform actions based on the inputs
-    console.log("Input 1: " + input1);
-    console.log("Input 2: " + input2);
-    console.log("Input 3: " + input3);
-    console.log("Choice: " + choice);
+    if (input1.value == "") {
+        input1.style.border = "1px solid red";
+        document.getElementById("message1").textContent ="Please enter";
+    };
+    if (input2.value == "") {
+        document.getElementById("message2").textContent ="Please enter";
+        input2.style.border = "1px solid red";
+    };
+    if (input3.value == "") {
+        document.getElementById("message3").textContent ="Please enter";
+        input3.style.border = "1px solid red";
+    };
+    if (input1.value == "" || input3.value == "") {
+        return;
+    };
+
+    const data = JSON.stringify({
+        po: input1.value,
+        invoice: input2.value,
+        werehouse: input3.value,
+        choice: choice
+    });
+
+    Telegram.WebApp.sendData(data);
+    Telegram.WebApp.close();
 });

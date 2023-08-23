@@ -1,17 +1,17 @@
 .buttons {
     text-align: center;
-    margin-bottom: 20px;
 }
 
 .buttons button {
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 2% 5%;
+    font-size: 3rex;
     cursor: pointer;
 }
 
 .buttons button.active {
-    background-color: #4CAF50;
+    background-color: #003387;
     color: white;
+    font-weight: bold;
 }
 
 .content {
@@ -24,9 +24,10 @@ h1 {
     margin-top: 20px;
 }
 
-label {
-    display: block;
-    margin-top: 10px;
+p {
+    margin: 0;
+    padding: 0;
+    color: red;
 }
 
 input[type="text"] {
@@ -38,21 +39,41 @@ input[type="text"] {
 }
 
 .choices {
-    margin-top: 20px;
+    margin-top: 1rem;
 }
 
-.choices label {
-    margin-right: 10px;
+.choices button {
+    height: 3rem;
+    text-align: center;
 }
 
-#submitButton {
-    display: block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4CAF50;
+.choices button.active {
+    background-color: #3072dd;
     color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    font-weight: bold;
 }
+
+.option {
+    margin: 0;
+    padding: 0;
+}
+
+.option label {
+    display: inline-flex;
+    font-size: 1.1rem;
+    position: relative;
+    top: -0.30rem;
+}
+
+.option input[type="radio"] {
+    margin: 0;
+    padding: 0;
+    margin-left: 0.3rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+#choiceLabel1, #choiceLabel2 {
+    padding: 1rem;
+}
+

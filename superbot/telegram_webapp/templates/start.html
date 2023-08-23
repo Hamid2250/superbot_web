@@ -2,75 +2,41 @@
 {% load static %}
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>New Order</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'telegram_webapp/styles.css' %}">
 </head>
 <body>
     <div class="buttons">
-        <button id="sbButton" class="active" name="SB">SB</button>
-        <button id="qButton" name="Q">Q</button>
+        <button id="sbButton" class="active" name="SB">SalesBuzz</button>
+        <button id="qButton" name="Q">Quotation</button>
     </div>
-    <div class="content">
-        <h1 id="contentTitle">Purchase Order</h1>
-        <label for="input1">Input:</label>
-        <input type="text" id="input1" maxlength="15">
-        <h1 id="contentLabel2">Invoice Note</h1>
-        <label for="input2">Input:</label>
-        <input type="text" id="input2" maxlength="15">
-        <div id="warehouseNoteSection">
-            <h1 id="contentLabel3">Warehouse Note</h1>
-            <label for="input3">Input:</label>
-            <input type="text" id="input3" maxlength="18">
+    <div class="content" id="myForm">
+        <h1 id="contentLabel1">Purchase Order</h1>
+        <input type="text" id="input1" maxlength="15" placeholder="Enter PO: 233*20*1234" required>
+        <p id="message1"></p>
+        <div id="invoiceSection">
+            <h1 id="contentLabel2">Invoice Note</h1>
+            <input type="text" id="input2" maxlength="15" placeholder="Net price, Max 15" required>
+            <p id="message2"></p>
         </div>
+        
+        <h1 id="contentLabel3">Warehouse Note</h1>
+        <input type="text" id="input3" maxlength="18" placeholder="Send on date, Max 18" required>
+        <p id="message3"></p>
+        
         <div class="choices" id="choices">
-            <input type="radio" id="choice1" name="choice" value="1" checked>
-            <label for="choice1" id="choiceLabel1">Review & Edit</label>
-            <input type="radio" id="choice2" name="choice" value="2">
-            <label for="choice2" id="choiceLabel2">Send</label>
+            <button class="option active" id="option1_btn">
+                <input type="radio" id="choice1" name="choice" value="1" checked>
+                <label for="choice1" id="choiceLabel1">Review & Edit</label>
+            </button>
+            <button class="option" id="option2_btn">
+                <input type="radio" id="choice2" name="choice" value="2">
+                <label for="choice2" id="choiceLabel2">Send</label>
+            </button>
         </div>
-        <button id="submitButton">Submit</button>
     </div>
+</body>
     <script src="{% static 'telegram_webapp/script.js' %}"></script>
-</body>
 </html>
-
-<!--
-    Simple static Telegram WebApp. Does not verify the WebAppInitData, as a bot token would be needed for that.
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>python-telegram-bot Example WebApp</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
-</head>
-<script type="text/javascript">
-    const colorPicker = new iro.ColorPicker('#picker', {
-        borderColor: "#ffffff",
-        borderWidth: 1,
-        width: Math.round(document.documentElement.clientWidth / 2),
-    });
-    colorPicker.on('color:change', function (color) {
-        document.body.style.background = color.hexString;
-    });
-
-    Telegram.WebApp.ready();
-    Telegram.WebApp.MainButton.setText('Choose Color').show().onClick(function () {
-        const data = JSON.stringify({hex: colorPicker.color.hexString, rgb: colorPicker.color.rgb});
-        Telegram.WebApp.sendData(data);
-        Telegram.WebApp.close();
-    });
-</script>
-<body style="background-color: #ffffff">
-<div style="position: absolute; margin-top: 5vh; margin-left: 5vw; height: 90vh; width: 90vw; border-radius: 5vh; background-color: var(--tg-theme-bg-color); box-shadow: 0 0 2vw
- #000000;">
-    <div id="picker"
-         style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%"></div>
-</div>
-</body>
-<script type="text/javascript">
-    Telegram.WebApp.expand();
-</script>
-</html>
--->
