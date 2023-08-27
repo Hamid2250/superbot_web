@@ -1,42 +1,28 @@
 <!DOCTYPE html>
-{% load static %}
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>New Order</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'telegram_webapp/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'telegram_webapp/start_styles.css' %}">
 </head>
 <body>
-    <div class="buttons">
-        <button id="sbButton" class="active" name="SB">SalesBuzz</button>
-        <button id="qButton" name="Q">Quotation</button>
+    <div>
+        <h1>Sign Up</h1>
+        <h3>First Name</h3>
+        <input id="first_name" type="text" placeholder="First Name">
+        <p id="fn"></p>
+        <h3>Last Name</h3>
+        <input id="last_name" type="text" placeholder="Last Name">
+        <p id="ln"></p>
+        <h3>Email</h3>
+        <input id="email" type="text" placeholder="Email">
+        <p id="em"></p>
     </div>
-    <div class="content" id="myForm">
-        <h1 id="contentLabel1">Purchase Order</h1>
-        <input type="text" id="input1" maxlength="15" placeholder="Enter PO: 233*20*1234" required>
-        <p id="message1"></p>
-        <div id="invoiceSection">
-            <h1 id="contentLabel2">Invoice Note</h1>
-            <input type="text" id="input2" maxlength="15" placeholder="Net price, Max 15" required>
-            <p id="message2"></p>
-        </div>
-        
-        <h1 id="contentLabel3">Warehouse Note</h1>
-        <input type="text" id="input3" maxlength="18" placeholder="Send on date, Max 18" required>
-        <p id="message3"></p>
-        
-        <div class="choices" id="choices">
-            <button class="option active" id="option1_btn">
-                <input type="radio" id="choice1" name="choice" value="1" checked>
-                <label for="choice1" id="choiceLabel1">Review & Edit</label>
-            </button>
-            <button class="option" id="option2_btn">
-                <input type="radio" id="choice2" name="choice" value="2">
-                <label for="choice2" id="choiceLabel2">Send</label>
-            </button>
-        </div>
-    </div>
+    <script src="{% static 'telegram_webapp/start_script.js' %}"></script>
+    <script type="text/javascript">
+        Telegram.WebApp.expand();
+    </script>
 </body>
-    <script src="{% static 'telegram_webapp/script.js' %}"></script>
 </html>
