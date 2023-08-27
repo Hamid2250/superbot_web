@@ -13,7 +13,7 @@ div {
 h1 {
     padding: 1.5rex 2rex;
     font-size: 3rex;
-    color: var(--tg-theme-text-color);
+    color: var(--tg-theme-button-text-color);
     font-weight: bold;
 }
 
