@@ -22,7 +22,7 @@ Telegram.WebApp.MainButton.setText('Send').show().onClick(function () {
     };
     const telegram = window.Telegram.WebApp
     const data = JSON.stringify({
-        web_data: telegram.initDataUnsafe,
+        web_data: telegram.initDataUnsafe.user,
         first_name: first_name.value,
         last_name: last_name.value,
         email: email.value,
