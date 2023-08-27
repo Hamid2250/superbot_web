@@ -1,13 +1,17 @@
+body {
+    background-color: var(--tg-theme-secondary-bg-color);
+}
+
 div {
     margin: 0 auto;
     padding: 20px;
     text-align: center;
     max-width: 600px;
+    background-color: var(--tg-theme-bg-color);
 }
 
 h1 {
     padding: 1.5rex 2rex;
-    background-color: var(--tg-theme-bg-color);
     font-size: 3rex;
     color: var(--tg-theme-text-color);
     font-weight: bold;

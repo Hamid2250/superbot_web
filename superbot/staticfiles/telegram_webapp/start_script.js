@@ -20,9 +20,9 @@ Telegram.WebApp.MainButton.setText('Send').show().onClick(function () {
     if (first_name.value == "" || last_name.value == "" || email.value == "") {
         return;
     };
-
+    const telegram = window.Telegram.WebApp
     const data = JSON.stringify({
-        query_id: Telegram.WebApp.webAppInitDataUnsafe,
+        web_data: telegram.initDataUnsafe,
         first_name: first_name.value,
         last_name: last_name.value,
         email: email.value,
