@@ -85,18 +85,24 @@ Telegram.WebApp.MainButton.setText('Send').show().onClick(function () {
     
     if (sbButton.classList.contains('active')) {
       const activeButton = 'SalesBuzz';
+      const data = JSON.stringify({
+          type: activeButton,
+          po: input1.value,
+          invoice: input2.value,
+          warehouse: input3.value,
+          choice: choice
+      });
     } else if (qButton.classList.contains('active')) {
-      const activeButton = 'Quotation';
+        const activeButton = 'Quotation';
+        const data = JSON.stringify({
+            type: activeButton,
+            quotation: input1.value,
+            warehouse: input3.value,
+            choice: choice
+        });
     }
     
 
-    const data = JSON.stringify({
-        type: activeButton,
-        po: input1.value,
-        invoice: input2.value,
-        werehouse: input3.value,
-        choice: choice
-    });
 
     Telegram.WebApp.sendData(data);
     Telegram.WebApp.close();
