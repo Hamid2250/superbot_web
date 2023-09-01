@@ -64,35 +64,31 @@ Telegram.WebApp.MainButton.setText('Send').show().onClick(function () {
     let input3 = document.getElementById("input3");
     let choice = document.querySelector('input[name="choice"]:checked').nextElementSibling.textContent;
 
-    if (input1.value == "") {
-        input1.style.border = "1px solid red";
-        document.getElementById("message1").textContent ="Please enter";
-    };
-    if (input2.value == "") {
-        input2.style.border = "1px solid red";
-        document.getElementById("message2").textContent ="Please enter";
-    };
-    if (input3.value == "") {
-        input3.style.border = "1px solid red";
-        document.getElementById("message3").textContent ="Please enter";
-    };
-    if (input1.value == "" || input3.value == "") {
-        return;
-    };
-
+    
     const sbButton = document.querySelector('#sbButton');
     const qButton = document.querySelector('#qButton');
     
     if (sbButton.classList.contains('active')) {
-      const activeButton = 'SalesBuzz';
-      const data = JSON.stringify({
-          type: activeButton,
-          po: input1.value,
-          invoice: input2.value,
-          warehouse: input3.value,
-          choice: choice
-      });
+        const activeButton = 'SalesBuzz';
+        const data = JSON.stringify({
+            type: activeButton,
+            po: input1.value,
+            invoice: input2.value,
+            warehouse: input3.value,
+            choice: choice
+        });
     } else if (qButton.classList.contains('active')) {
+        if (input1.value == "") {
+            input1.style.border = "1px solid red";
+            document.getElementById("message1").textContent ="Please enter";
+        };
+        if (input3.value == "") {
+            input3.style.border = "1px solid red";
+            document.getElementById("message3").textContent ="Please enter";
+        };
+        if (input1.value == "" || input3.value == "") {
+            return;
+        };
         const activeButton = 'Quotation';
         const data = JSON.stringify({
             type: activeButton,
