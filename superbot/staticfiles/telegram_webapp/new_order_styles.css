@@ -1,0 +1,79 @@
+.buttons {
+    text-align: center;
+}
+
+.buttons button {
+    padding: 2% 5%;
+    font-size: 3rex;
+    cursor: pointer;
+}
+
+.buttons button.active {
+    background-color: #003387;
+    color: white;
+    font-weight: bold;
+}
+
+.content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    color: red;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.choices {
+    margin-top: 1rem;
+}
+
+.choices button {
+    height: 3rem;
+    text-align: center;
+}
+
+.choices button.active {
+    background-color: #3072dd;
+    color: white;
+    font-weight: bold;
+}
+
+.option {
+    margin: 0;
+    padding: 0;
+}
+
+.option label {
+    display: inline-flex;
+    font-size: 1.1rem;
+    position: relative;
+    top: -0.30rem;
+}
+
+.option input[type="radio"] {
+    margin: 0;
+    padding: 0;
+    margin-left: 0.3rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+#choiceLabel1, #choiceLabel2 {
+    padding: 1rem;
+}
+
