@@ -78,17 +78,17 @@ Telegram.WebApp.MainButton.setText('Send').show().onClick(function () {
             choice: choice
         });
     } else if (qButton.classList.contains('active')) {
-        // if (input1.value == "") {
-        //     input1.style.border = "1px solid red";
-        //     document.getElementById("message1").textContent ="Please enter";
-        // };
-        // if (input3.value == "") {
-        //     input3.style.border = "1px solid red";
-        //     document.getElementById("message3").textContent ="Please enter";
-        // };
-        // if (input1.value == "" || input3.value == "") {
-        //     return;
-        // };
+        if (input1.value == "") {
+            input1.style.border = "1px solid red";
+            document.getElementById("message1").textContent ="Please enter";
+        };
+        if (input3.value == "") {
+            input3.style.border = "1px solid red";
+            document.getElementById("message3").textContent ="Please enter";
+        };
+        if (input1.value == "" || input3.value == "") {
+            return;
+        };
         const activeButton = 'Quotation';
         data = JSON.stringify({
             type: activeButton,
