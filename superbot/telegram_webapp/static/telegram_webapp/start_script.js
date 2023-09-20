@@ -1,6 +1,6 @@
-window.Telegram.WebApp.ready();
+Telegram.WebApp.ready();
 
-window.Telegram.WebApp.MainButton.setText('Send').show().onClick(function () {
+Telegram.WebApp.MainButton.setText('Send').show().onClick(function () {
     let first_name = document.getElementById("first_name");
     let last_name = document.getElementById("last_name");
     let email = document.getElementById("email");
@@ -26,7 +26,7 @@ window.Telegram.WebApp.MainButton.setText('Send').show().onClick(function () {
         email: email.value,
     });
 
-    window.Telegram.WebApp.sendData(data);
-    window.Telegram.WebApp.close();
+    Telegram.WebApp.sendData(data);
+    Telegram.WebApp.close();
 });
 
