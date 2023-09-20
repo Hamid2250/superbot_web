@@ -69,21 +69,6 @@ Telegram.WebApp.MainButton.setText('Send').show().onClick(function () {
     const qButton = document.querySelector('#qButton');
     
     if (sbButton.classList.contains('active')) {
-        if (input1.value == "") {
-            input1.style.border = "1px solid red";
-            document.getElementById("message1").textContent ="Please enter";
-        };
-        if (input2.value == "") {
-            input2.style.border = "1px solid red";
-            document.getElementById("message2").textContent ="Please enter";
-        };
-        if (input3.value == "") {
-            input3.style.border = "1px solid red";
-            document.getElementById("message3").textContent ="Please enter";
-        };
-        if (input1.value == "" || input3.value == "") {
-            return;
-        };
         const activeButton = 'SalesBuzz';
         const data = JSON.stringify({
             type: activeButton,
@@ -92,8 +77,6 @@ Telegram.WebApp.MainButton.setText('Send').show().onClick(function () {
             warehouse: input3.value,
             choice: choice
         });
-        Telegram.WebApp.sendData(data);
-        Telegram.WebApp.close();
     } else if (qButton.classList.contains('active')) {
         if (input1.value == "") {
             input1.style.border = "1px solid red";
@@ -113,10 +96,10 @@ Telegram.WebApp.MainButton.setText('Send').show().onClick(function () {
             warehouse: input3.value,
             choice: choice
         });
-        Telegram.WebApp.sendData(data);
-        Telegram.WebApp.close();
     }
     
 
 
+    Telegram.WebApp.sendData(data);
+    Telegram.WebApp.close();
 });
